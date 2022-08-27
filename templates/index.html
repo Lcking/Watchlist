@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ name }}}'s watchlist</title>
+    <title>{{ user.name }}'s watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css">
 </head>
 <body>
-<h2> {{ name }}'s watchlist  </h2>
+<img alt="avatar"  class="avatar"  src="{{url_for('static', filename='images/avatar.png')}}">
+<h2> {{ user.name }}'s watchlist  </h2>
 {#这里就是用来写注释的地方#}
 
 <p>{{ movies|length }} Titles</p>
 
-<ul>
+<ul class="movie-list">
     {% for movie in movies %}     {#迭代 movies变量#}
     <li>{{ movie.title }} - {{movie.year}} </li>
     {% endfor %}  {# 使用endfor标签结束for语句 #}
 </ul>
+
+<img alt="walking totoro" class="totoro" src="{{url_for('static', filename='images/totoro.gif')}}">
 
 <footer>
     <small>&copy; 2018 <a href="http://helloflask.com/book/3">HelloFlask</a></small>
